@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define a bean with no-arg constructor -->
+    <bean id="myBeans001" class="com.spring.ioc_01.NoArgComponent" />
+    <bean id="myBeans002" class="com.spring.ioc_01.NoArgComponent" />
+
+    <!-- Define a bean with static factory method -->
+    <bean id="myBeans003" class="com.spring.ioc_01.StaticFctryComponent" factory-method="createInstance" />
+
+    <!-- Define a bean with instance factory method -->
+    <bean id ="factoryBean001" class="com.spring.ioc_01.InstanceFctryComponent" />
+    <bean id ="myBeans005" factory-bean="factoryBean001" factory-method="createInstance"/>
+</beans>
