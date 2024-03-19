@@ -12,5 +12,5 @@
 
     <!-- Define a bean with instance factory method -->
     <bean id ="factoryBean001" class="com.spring.ioc_01.InstanceFctryComponent" />
-    <bean id ="myBeans005" factory-bean="factoryBean001" factory-method="createInstance"/>
+    <bean id ="myBeans004" factory-bean="factoryBean001" factory-method="createInstance"/>
 </beans>

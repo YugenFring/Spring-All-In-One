@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myDaoBean001" class="com.spring.ioc_02.MyDao" />
+
+    <!-- Define a bean with a constructor that takes one argument -->
+    <bean id="myService001" class="com.spring.ioc_02.MyService">
+        <constructor-arg ref="myDaoBean001" />
+    </bean>
+
+    <!-- Define a bean with a constructor that takes three arguments -->
+    <bean id="myService002" class="com.spring.ioc_02.MyService">
+        <!-- assign sequentially by default -->
+        <constructor-arg value="28" />
+        <constructor-arg value="Yugen Fring" />
+        <constructor-arg ref="myDaoBean001" />
+    </bean>
+
+    <bean id="myService003" class="com.spring.ioc_02.MyService">
+        <!-- assign by name -->
+        <constructor-arg name="name" value="Yugen Fring" />
+        <constructor-arg name="myDao" ref="myDaoBean001" />
+        <constructor-arg name="age" value="28" />
+    </bean>
+
+    <bean id="myService004" class="com.spring.ioc_02.MyService">
+        <!-- assign by index -->
+        <constructor-arg index="1" value="Yugen Fring" />
+        <constructor-arg index="2" ref="myDaoBean001" />
+        <constructor-arg index="0" value="28" />
+    </bean>
+
+    <!-- Define a bean with setter methods -->
+    <bean id="myController001" class="com.spring.ioc_02.MyController">
+        <property name="myService" ref="myService001" />
+        <property name="name" value="Yugen Fring" />
+    </bean>
+</beans>
