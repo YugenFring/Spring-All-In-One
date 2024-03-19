@@ -44,6 +44,7 @@ public class SpringIoCTest {
         // Retrieve a bean through its interface type.
         MyInterface component004 = context.getBean(MyInterface.class);
 
+        // All the retrieved beans are the same instance because the default scope of a bean is singleton.
         component004.doWork();
     }
 }
