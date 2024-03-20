@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Specify the lifecycle methods -->
+    <bean id="javaComponent001" class="com.spring.ioc_04.JavaComponent" init-method="init" destroy-method="destroy" />
+
+    <!-- Specify the scope of the bean as singleton -->
+    <bean id="javaComponent002" class="com.spring.ioc_04.JavaComponent" scope="singleton" />
+
+    <!-- Specify the scope of the bean as prototype -->
+    <bean id="javaComponent003" class="com.spring.ioc_04.JavaComponent" scope="prototype" />
+</beans>

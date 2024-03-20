@@ -2,6 +2,7 @@ package com.spring.test;
 
 import com.spring.ioc_03.MyComponent;
 import com.spring.ioc_03.MyInterface;
+import com.spring.ioc_04.JavaComponent;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -46,5 +47,43 @@ public class SpringIoCTest {
 
         // All the retrieved beans are the same instance because the default scope of a bean is singleton.
         component004.doWork();
+    }
+
+    /**
+     * Test the method of initializing and destroying.
+     */
+    @Test
+    void lifecycleMethod() {
+        // The initialization method will be called after the container is initialized.
+        // The bean will start to be initialized when the IoC container is created.
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-04.xml");
+
+        // The destroy method will be called before the bean is destroyed.
+        // The bean will be destroyed when the IoC container is closed.
+        context.close();
+    }
+
+    /**
+     * Test singleton scope.
+     */
+    @Test
+    void singletonTest() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-04.xml");
+
+        JavaComponent component001 = context.getBean("javaComponent002", JavaComponent.class);
+        JavaComponent component002 = context.getBean("javaComponent002", JavaComponent.class);
+        System.out.println("bean001 == bean002: " + (component001 == component002));
+    }
+
+    /**
+     * Test prototype scope.
+     */
+    @Test
+    void prototypeTest() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-04.xml");
+
+        JavaComponent component001 = context.getBean("javaComponent003", JavaComponent.class);
+        JavaComponent component002 = context.getBean("javaComponent003", JavaComponent.class);
+        System.out.println("bean001 == bean002: " + (component001 == component002));
     }
 }
