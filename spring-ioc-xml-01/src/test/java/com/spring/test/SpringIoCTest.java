@@ -3,6 +3,7 @@ package com.spring.test;
 import com.spring.ioc_03.MyComponent;
 import com.spring.ioc_03.MyInterface;
 import com.spring.ioc_04.JavaComponent;
+import com.spring.ioc_05.SimpleComponent;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -85,5 +86,21 @@ public class SpringIoCTest {
         JavaComponent component001 = context.getBean("javaComponent003", JavaComponent.class);
         JavaComponent component002 = context.getBean("javaComponent003", JavaComponent.class);
         System.out.println("bean001 == bean002: " + (component001 == component002));
+    }
+
+    /**
+     * Test factory bean.
+     */
+    @Test
+    void testFactoryBean() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-05.xml");
+
+        // Retrieve a bean through factory bean.
+        SimpleComponent component001 = context.getBean("mySimpleComponent001", SimpleComponent.class);
+        component001.doWork();
+
+        // Retrieve the factory bean.
+        Object factory001 = context.getBean("&mySimpleComponent001");
+        System.out.println("factory001: " + factory001);
     }
 }
