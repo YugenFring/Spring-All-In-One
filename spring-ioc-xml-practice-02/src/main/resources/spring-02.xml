@@ -20,4 +20,19 @@
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="druidDataSource"/>
     </bean>
+
+    <!-- Define a bean for the StudentDao through setter method -->
+    <bean id="studentDao" class="com.spring.dao.impl.StudentDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <!-- Define a bean for the StudentService through setter method -->
+    <bean id="studentService" class="com.spring.service.impl.StudentServiceImpl">
+        <property name="studentDao" ref="studentDao"/>
+    </bean>
+
+    <!-- Define a bean for the StudentController through setter method -->
+    <bean id="studentController" class="com.spring.controller.StudentController">
+        <property name="studentService" ref="studentService"/>
+    </bean>
 </beans>

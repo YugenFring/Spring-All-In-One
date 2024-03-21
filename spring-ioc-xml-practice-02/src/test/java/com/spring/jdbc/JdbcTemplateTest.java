@@ -1,6 +1,8 @@
 package com.spring.jdbc;
 
+import com.spring.controller.StudentController;
 import com.spring.pojo.Student;
+import com.spring.service.StudentService;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class JdbcTemplateTest {
     @Test
-    void test() {
+    void basicTest() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-01.xml");
 
         JdbcTemplate jdbcTemplate = context.getBean(JdbcTemplate.class);
@@ -38,5 +40,16 @@ public class JdbcTemplateTest {
         String select_sql2 = "select id, f_name as name, f_gender as gender, f_age as age, f_class as theClass from students";
         List<Student> studentList = jdbcTemplate.query(select_sql2, new BeanPropertyRowMapper<Student>(Student.class));
         System.out.println("studentList = " + studentList);
+    }
+
+    /**
+     * Test the three layers: controller, service, and dao.
+     */
+    @Test
+    void testThreeLayers() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-02.xml");
+
+        StudentController controller = context.getBean(StudentController.class);
+        controller.handleAll();
     }
 }
