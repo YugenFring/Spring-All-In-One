@@ -55,7 +55,7 @@ public class SpringIoCTest {
      */
     @Test
     void lifecycleMethod() {
-        // The initialization method will be called after the container is initialized.
+        // The initialization method will be called after the completion of bean dependency injections.
         // The bean will start to be initialized when the IoC container is created.
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-04.xml");
 

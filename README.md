@@ -1,5 +1,7 @@
 # Spring-All-In-One
 
-This is a comprehensive Spring tutorial from 0 to 1.
+This is a tutorial covering the fundamentals of Spring, a popular backend framework.
 
-Refer to [wiki](https://github.com/YugenFring/Spring-All-In-One/wiki) for best practices.
+
+
+For best practices and additional information, refer to the accompanying [wiki](https://github.com/YugenFring/Spring-All-In-One/wiki).

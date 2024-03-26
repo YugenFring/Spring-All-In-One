@@ -5,6 +5,7 @@ import com.spring.ioc_01.MyController;
 import com.spring.ioc_01.MyService;
 import com.spring.ioc_02.JavaComponent;
 import com.spring.ioc_03.SomeController;
+import com.spring.ioc_04.CommonComponent;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -42,6 +43,16 @@ public class SpringIoCTest {
         controller.doUserController();
         controller.doViewController();
         controller.doTimeController();
+
+        context.close();
+    }
+
+    @Test
+    void testValue() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-04.xml");
+
+         CommonComponent component = context.getBean(CommonComponent.class);
+         System.out.println(component);
 
         context.close();
     }
