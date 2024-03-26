@@ -10,6 +10,9 @@ public class CommonComponent {
      */
     @Value("${jdbc.username}")
     private String username;
+    /**
+     * Specify default value if the value is not found in the properties file.
+     */
     @Value("${jdbc.password:123456}")
     private String password;
 
