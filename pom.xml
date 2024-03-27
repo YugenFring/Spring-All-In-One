@@ -17,6 +17,7 @@
         <module>spring-ioc-java-05</module>
         <module>spring-ioc-java-practice-06</module>
         <module>spring-test-07</module>
+        <module>spring-aop-annotation-08</module>
     </modules>
 
     <properties>
